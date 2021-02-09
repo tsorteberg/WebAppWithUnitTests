@@ -58,5 +58,22 @@ namespace FRWASortebergTest
             //ASSERT
             Assert.Equal(name, testObject.Name);
         }
+
+        [Fact]
+        public void TestGetBirthDateSuccess()
+        {
+            DateTime birthDate = new DateTime(1977, 10, 30);
+            FRWAModel testObject = new FRWAModel
+            {
+                Name = "Tom Sorteberg",
+                BirthDate = birthDate
+            };
+
+            //ACT
+            DateTime birthDateTest = new DateTime(1977, 10, 30);
+
+            //ASSERT
+            Assert.Equal(birthDateTest, testObject.BirthDate);
+        }
     }
 }
