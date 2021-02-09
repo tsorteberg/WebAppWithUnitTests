@@ -105,5 +105,17 @@ namespace FRWASortebergTest
             //ASSERT
             Assert.Null(testObject.Name);
         }
+
+        [Fact]
+        public void TestNullValueBirthDate()
+        {
+            //ARRANGE
+            FRWAModel testObject = new FRWAModel();
+
+            //ACT
+
+            //ASSERT
+            Assert.Null(testObject.BirthDate);
+        }
     }
 }
