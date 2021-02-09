@@ -1,0 +1,56 @@
+﻿<!--
+/***************************************************************
+* Name        : Index.cshtml
+* Author      : Tom Sorteberg
+* Created     : 01/28/2021
+* Course      : CIS 174
+* Version     : 1.0
+* OS          : Windows 10 Pro, Visual Studio Community 2019
+* Copyright   : This is my own original work based on
+*               specifications issued by our instructor
+* Description : This razor file represents the view for an MVC ASP.NET
+*               Core Web Application, which has been prepared
+*               for the First Responsive Web App assignment.  This razor view
+*               prompts the user to enter their name and birth date, the
+*               information is passed to the model for processing, and then
+*               the user's age is displayed.
+* I have not used unauthorized source code, either modified or
+* unmodified. I have not given other fellow student(s) access
+* to my program.
+***************************************************************/
+-->
+@model FRWAModel
+@{
+    ViewBag.Title = "Age Calculator";
+}
+
+<div class="container">
+    <header class="jumbotron">
+        <h1 class="mt-3">@ViewBag.Title</h1>
+    </header>
+    <main>
+        <form asp-action="Index" method="post" class="form-horizontal">
+            <div asp-validation-summary="All"></div>
+            <div class="row">
+                <label asp-for="Name" class="control-label col-sm-3">Name:</label>
+                <input asp-for="Name" class="form-control col-sm-3" />
+                <span asp-validation-for="Name" class="text-danger col"></span>
+            </div>
+            <div class="row">
+                <label asp-for="BirthDate" class="control-label col-sm-3">Birth Date:</label>
+                <input asp-for="BirthDate" class="form-control col-sm-3" />
+                <span asp-validation-for="BirthDate" class="text-danger col"></span>
+            </div>
+            <div class="row">
+                <label class="control-label col-sm-3">Age:</label>
+                <input value="@ViewBag.Age.ToString()" readonly class="form-control col-sm-3">
+            </div>
+            <div class="row">
+                <div class="col offset-sm-3 pl-0">
+                    <button type="submit" class="btn btn-primary">Calculate</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
